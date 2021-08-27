@@ -1,6 +1,6 @@
 version: "3"
-  services:
-    rating:
+services:
+  rating:
       build: .
       dockerfile: Dockerfile
       image: ghcr.io/pungpeee/bookinfo_rating:latest
