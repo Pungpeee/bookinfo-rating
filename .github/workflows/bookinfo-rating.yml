@@ -46,3 +46,4 @@ jobs:
                docker pull ghcr.io/pungpeee/bookinfo-ratings:latest
                docker images
                docker run -d -p 8080:8080 ghcr.io/pungpeee/bookinfo-ratings:latest
+               docker ps -a
