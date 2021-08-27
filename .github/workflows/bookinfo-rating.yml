@@ -44,4 +44,4 @@ jobs:
             password: ${{ secrets.PASSWORD }}
             script: |
                docker pull ghcr.io/pungpeee/bookinfo-rating:latest
-               docker-compose up -d
+               docker run -d -p 8081:8080 ghcr.io/pungpeee/bookinfo-rating:latest
