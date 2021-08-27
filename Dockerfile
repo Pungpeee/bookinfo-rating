@@ -8,4 +8,3 @@ RUN npm install
 EXPOSE 8081
 
 CMD ["node", "/usr/src/app/ratings.js", "8081"]
-© 2021 GitHub, Inc.
