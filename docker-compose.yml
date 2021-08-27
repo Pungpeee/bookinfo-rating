@@ -1,7 +1,8 @@
 services:
   ratings:
     build: .
-    image: ghcr.io/gun082544/bookinfo_rating:latest
+      dockerfile: Dockerfile
+    image: ghcr.io/pungpeee/bookinfo_rating:latest
     ports:
       - "8080:8080"
     environment:
