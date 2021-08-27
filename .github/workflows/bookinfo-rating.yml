@@ -29,7 +29,7 @@ jobs:
         with:
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/pungpeee/bookinfo-ratings
+          tags: ghcr.io/pungpeee/bookinfo-rating
         
   deploy:
       needs: build
@@ -43,7 +43,7 @@ jobs:
             username: pungpeee
             password: ${{ secrets.PASSWORD }}
             script: |
-               docker pull ghcr.io/pungpeee/bookinfo-ratings:latest
+               docker pull ghcr.io/pungpeee/bookinfo-rating:latest
                docker images
-               docker run -d -p 8080:8080 ghcr.io/pungpeee/bookinfo-ratings:latest
+               docker run -d -p 8080:8080 ghcr.io/pungpeee/bookinfo-rating:latest
                docker ps -a
