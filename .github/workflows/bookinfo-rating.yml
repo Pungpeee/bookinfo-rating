@@ -36,7 +36,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: pungpeee
-          password: ${{ secret.PASSWORD }}
+          password: ${{ secrets.PASSWORD }}
           source: "./docker-compose.yml"
           target: "."    
         
