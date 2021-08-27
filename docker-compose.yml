@@ -4,7 +4,7 @@ services:
       dockerfile: Dockerfile
     image: ghcr.io/pungpeee/bookinfo_rating:latest
     ports:
-      - "8080:8080"
+      - "8081:8080"
     environment:
       SERVICE_VERSION: v2
       MONGO_DB_URL: mongodb://mongodb:27017/ratings
