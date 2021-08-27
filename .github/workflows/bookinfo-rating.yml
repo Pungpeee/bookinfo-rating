@@ -30,6 +30,15 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ghcr.io/pungpeee/bookinfo-rating
+          
+      - name: Deploy compose file
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: pungpeee
+          password: ${{ secret.PASSWORD }}
+          source: "./docker-compose.yml"
+          target: "."    
         
   deploy:
       needs: build
