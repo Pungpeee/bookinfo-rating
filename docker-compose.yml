@@ -1,8 +1,6 @@
 version: "3"
 services:
   rating:
-      build: .
-      dockerfile: Dockerfile
       image: ghcr.io/pungpeee/bookinfo_rating:latest
       ports:
         - "8081:8080"
