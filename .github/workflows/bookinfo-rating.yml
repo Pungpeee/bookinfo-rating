@@ -1,0 +1,48 @@
+name: Ratings
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+        name: checkout code
+    
+      - uses: docker/setup-buildx-action@v1    
+        name: Docker build
+      
+      - name: Login to github registry
+        uses: docker/login-action@v1 
+        with:
+         registry: ghcr.io
+         username: ${{ github.repository_owner }}
+         password: ${{ secrets.TOKEN_GITHUB__BP }}
+        
+      - name: Build image
+        uses: docker/build-push-action@v2
+        with:
+          file: ./Dockerfile
+          push: true
+          tags: ghcr.io/pungpeee/bookinfo-ratings
+        
+  deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      
+      steps:
+        - name: Execute ssh command to remote server
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.HOST }}
+            username: pungpeee
+            password: ${{ secrets.PASSWORD }}
+            script: |
+               docker pull ghcr.io/pungpeee/bookinfo-ratings:latest
+               docker images
+               docker run -d -p 8080:8080 ghcr.io/pungpeee/bookinfo-ratings:latest
