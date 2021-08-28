@@ -10,8 +10,7 @@ services:
   mongodb:
       image: bitnami/mongodb:4.4.4-debian-10-r5
       volumes:
-        - "./databases:/docker-entrypoint-initdb.d"
-networks:
-  default:
-    external: true
-    name: bookinfo
+ networks:
+    default:
+        external:
+            name: bookinfo
