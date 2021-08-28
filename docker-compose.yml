@@ -1,6 +1,7 @@
 version: "3"
 services:
   ratings:
+    build: .
     image: ghcr.io/pungpeee/bookinfo_rating:latest
     ports:
       - "8081:8080"
