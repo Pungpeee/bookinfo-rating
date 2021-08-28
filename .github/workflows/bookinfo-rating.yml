@@ -53,4 +53,4 @@ jobs:
             password: ${{ secrets.PASSWORD }}
             script: |
                docker pull ghcr.io/pungpeee/bookinfo-rating:${{ env.RATINGS_SERVICE }}
-               docker-compose up -d
+               docker run -itd --network=bookinfo
