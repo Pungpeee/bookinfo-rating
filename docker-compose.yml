@@ -1,15 +1,18 @@
 version: "3"
 services:
   ratings:
-      image: ghcr.io/pungpeee/bookinfo-rating:latest
-      ports:
-        - "8081:8080"
-      environment:
-        SERVICE_VERSION: v2
-        MONGO_DB_URL: mongodb://mongodb:27017/ratings
+    build: .
+      dockerfile: Dockerfile
+    image: ghcr.io/pungpeee/bookinfo_rating:latest
+    ports:
+      - "8081:8080"
+    environment:
+      SERVICE_VERSION: v2
+      MONGO_DB_URL: mongodb://mongodb:27017/ratings
   mongodb:
-      image: bitnami/mongodb:4.4.4-debian-10-r5
-      volumes: "./databases:/docker-entrypoint-initdb.d"
+    image: bitnami/mongodb:4.4.4-debian-10-r5
+    volumes:
+      - "./databases:/docker-entrypoint-initdb.d"
 networks:
   default:
       external:
