@@ -9,7 +9,7 @@ services:
         MONGO_DB_URL: mongodb://mongodb:27017/ratings
   mongodb:
       image: bitnami/mongodb:4.4.4-debian-10-r5
-      volumes:
+      volumes: "./databases:/docker-entrypoint-initdb.d"
  networks:
     default:
         external:
