@@ -29,7 +29,7 @@ jobs:
         with:
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/pungpeee/bookinfo-rating
+          tags: ghcr.io/pungpeee/bookinfo-rating:latest
           
       - name: Deploy compose file
         uses: appleboy/scp-action@master
