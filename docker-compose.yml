@@ -1,7 +1,7 @@
 version: "3"
 services:
   ratings:
-    image: ghcr.io/pungpeee/bookinfo_rating:latest
+    image: ghcr.io/pungpeee/bookinfo-rating:latest
     ports:
       - "8081:8080"
     environment:
