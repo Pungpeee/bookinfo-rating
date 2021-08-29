@@ -53,9 +53,5 @@ jobs:
             password: ${{ secrets.PASSWORD }}
             script: |
                docker pull ghcr.io/pungpeee/bookinfo-rating:latest
-               docker-compose up -d
-            
-#             script: |
-#                docker pull ghcr.io/pungpeee/bookinfo-rating:latest
-#                docker run -d --name mongodb -p 27017:27017 --network=bookinfo -v $(pwd)/databases:/docker-entrypoint-initdb.d bitnami/mongodb:4.4.4-debian-10-r5
-#                docker run -d --name ratings -p 8081:8080 --network=bookinfo --link mongodb:mongodb -e SERVICE_VERSION=v2 -e 'MONGO_DB_URL=mongodb://mongodb:27017/ratings' ghcr.io/pungpeee/bookinfo-rating:latest
+               docker run -d --name mongodb -p 27017:27017 --network=bookinfo -v $(pwd)/databases:/docker-entrypoint-initdb.d bitnami/mongodb:4.4.4-debian-10-r5
+               docker run -d --name ratings -p 8081:8080 --network=bookinfo --link mongodb:mongodb -e SERVICE_VERSION=v2 -e 'MONGO_DB_URL=mongodb://mongodb:27017/ratings' ghcr.io/pungpeee/bookinfo-rating:latest
